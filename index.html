@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emoji Movie Guessing Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Emoji Movie Guessing Game</h1>
+      <p>Write emoji puzzles and let your friends guess the movie.</p>
+    </header>
+
+    <section class="panel">
+      <h2>🎬 Guess the Movie</h2>
+      <div class="puzzle-card">
+        <div id="currentPuzzle" class="puzzle">Loading puzzle...</div>
+        <div class="controls">
+          <input id="guessInput" type="text" placeholder="Type your movie guess here" />
+          <button id="checkGuessBtn">Check Guess</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="actions">
+          <button id="showAnswerBtn">Show Answer</button>
+          <button id="nextPuzzleBtn">Next Puzzle</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>🌐 Remote Multiplayer</h2>
+      <form id="remoteSetupForm" class="grid-form">
+        <label>
+          Your name:
+          <input id="remotePlayerName" type="text" placeholder="Enter a name" />
+        </label>
+        <button type="submit">Connect to Game</button>
+      </form>
+      <div id="remoteStatus" class="status">Not connected</div>
+      <div id="remotePlayers" class="multiplayer-info hidden">
+        <p>Players connected:</p>
+        <ul id="remotePlayersList"></ul>
+      </div>
+      <div class="hint">Run the server with <code>npm start</code> and open the same URL on different devices to play together.</div>
+    </section>
+
+    <section class="panel">
+      <h2>✍️ Add an Emoji Puzzle</h2>
+      <form id="addPuzzleForm">
+        <label>
+          Emoji puzzle:
+          <input id="newEmoji" type="text" placeholder="e.g. 🦁👑" required />
+        </label>
+        <label>
+          Movie title:
+          <input id="newAnswer" type="text" placeholder="e.g. The Lion King" required />
+        </label>
+        <button type="submit">Add Puzzle</button>
+      </form>
+      <div class="hint">Hint: Everyone can write puzzles. Use emojis that represent characters, actions or movie themes.</div>
+    </section>
+
+    <section class="panel small-panel">
+      <h2>✅ Stats</h2>
+      <p>Puzzles added: <strong id="puzzleCount">0</strong></p>
+      <p>Correct guesses: <strong id="correctCount">0</strong></p>
+      <p>Wrong guesses: <strong id="wrongCount">0</strong></p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
